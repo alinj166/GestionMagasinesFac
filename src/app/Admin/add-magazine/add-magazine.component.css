@@ -1,0 +1,21 @@
+.containeer{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top:5%;
+    height: 80vh;
+}
+.col-md-12{
+    display: flex;
+}
+.form-check{
+    margin-top: 10px;
+}
+.button{
+    max-width: 20%;
+    margin-left: 37%;
+}
+.containeer p{
+    text-align: center;
+    text-decoration: none;
+}
+

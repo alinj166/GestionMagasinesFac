@@ -1,0 +1,158 @@
+<div style="background-color: #c4d2ea"><BR>
+  <div class="container">
+    <!-- Detail Magazine -->
+      <div class="card">
+        <div class="card-body">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img [src]="dataMagazine.image" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <strong><em><h2 class="card-title">{{dataMagazine.titre}}</h2></em></strong>
+                    <h4>Page Number : {{dataMagazine.numero}}</h4>
+                    <p class="card-text">{{dataMagazine.description}}</p>
+                  <div *ngIf="valid_Reserve(dataMagazine.etat);else blockElse">
+                    <div class="alert alert-primary">
+                      <strong>In Stock</strong>
+                    </div>
+                    <a class="btn btn-outline-primary" style="text-decoration: none;float:right;" href="#modal-overflow" uk-toggle >Reserve</a>
+                  </div>
+                  <ng-template #blockElse>
+                  <div class="alert alert-danger">
+                    <strong>Unavailable!</strong>
+                  </div>
+                  </ng-template>
+                  </div>
+                 </div>
+            </div>
+        </div>
+      </div>
+      <br>
+       <!-- Model Update -->
+    <div id="modal-overflow" uk-modal>
+      <div class="uk-modal-dialog">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <div class="uk-modal-header">
+            <div class="footer-col">
+              <h4 class="uk-modal-title" style="font-size: 25px;">Reserve</h4>
+            </div>
+              
+          </div>   
+          <div class="uk-modal-body" uk-overflow-auto> 
+            <!-- Update magazine -->
+
+            <div class="uk-position-center uk-overlay uk-overlay-default">
+              <form #f="ngForm" [formGroup]="myform">
+                  <div class="uk-margin">
+                      <div class="uk-inline">
+                        <label for="start">From : </label>&nbsp;
+                        <input type="date" formControlName="dateDeb" id="start" name="trip-start" value="2022-01-01" min="2022-01-01">
+                      </div>
+                  </div>
+                  <div class="uk-margin">
+                  <div class="uk-inline">
+                    <label for="start">To : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="date" formControlName="dateFin" id="start" name="trip-start" value="2022-01-01" min="2022-01-01">
+                  </div>
+              </div>
+              <button type="submit" (click)="add()" [disabled]="myform.invalid" class="btn btn-primary" style="width: 100%;">Reserve</button><br>
+              <div *ngIf="message=='';else mess"></div>
+              <ng-template #mess>
+                <div class="alert alert-danger" *ngIf="message=='Erreur';else Elseblock">Not Available!!</div>
+              
+              </ng-template>
+              <ng-template #Elseblock>
+                <div class="alert alert-success">
+                  <strong>Ajouter avec succès!</strong>
+                </div>
+                </ng-template>
+              
+              <br>
+              </form>
+              </div>
+  <!--end update magazine -->
+          </div>
+          <div class="uk-modal-footer uk-text-right">
+              <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+              
+          </div>
+      </div>
+  </div>
+    <!-- Commentaire -->
+      <div class="card">
+        <div class="card-header text-center ">
+        <div class="footer-col">
+          <h4>featured review</h4>
+        </div>
+      </div>
+        <div class="card-body">
+            <div class="row">
+              <form #f="ngForm" [formGroup]="myformC">
+                <div class="col-md-10">
+                  <textarea class="form-control" rows="2" formControlName="commentaire"></textarea>
+                  <br>
+                  <input style="float:right;" type="submit" value="Comment" class="btn btn-outline-primary button"  (click)="addComment()">
+                </div>
+              </form>
+              <div class="scroller">
+                <div *ngFor="let c of dataAllC">
+
+                   <ng-container *ngIf="valid(c,key)">
+                        <div *ngFor="let u of dataAllUser">
+                          <ng-container *ngIf="valid_img(u,c.idUser)">
+                              <table> 
+                                <tr>
+                                  <td>
+                                <div style="display:inline-block;vertical-align:top;">                 
+                                  <img [src]="u.image" style="width: 50px;height: 50px;border-radius: 50%;" alt="...">
+                                </div>
+                              </td>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              
+                              <td>
+                                <tr>
+                                    <div style="display:inline-block;">
+                                      {{u.lastName|uppercase}} {{u.firstName}} 
+                                    </div>
+                                  </tr>
+                                  <tr>
+                                    <div style="display:inline-block;">
+                                      {{c.commentair}}
+                                    </div>
+                                </tr>
+                              </td>
+                                </tr>
+
+                              </table>
+                              <br>
+                          </ng-container>
+                        </div>
+                  </ng-container>
+                </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <br>
+    <!-- Magazines -->
+      <div class="card">
+        <div class="card-header text-center ">
+          <div class="footer-col">
+            <h4>If you like this piece, You might also like .</h4>
+          </div>
+        </div>
+            
+        <div class="card-body">
+            <div class="row" style="text-align: center;">   
+                <div class="col-md-3" *ngFor="let x of data_4()">
+                    <div class="col-md-8">           
+                      <a (click)="navi(x.id)"><img [src]="x.image" class="img-circle" style="width: 500px;height:250px;" alt="..."></a>
+                      </div> 
+                  </div>
+            </div>
+        </div>
+      </div>
+</div>
+<br>
+</div>

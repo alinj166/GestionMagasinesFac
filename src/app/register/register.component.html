@@ -1,0 +1,156 @@
+<form #f="ngForm" (ngSubmit)="register(f)"  >
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10" >
+      <div class="card-group mb-0">
+        <div class="card p-4">
+          <div class="card-body">
+
+    <div class="uk-inline">
+      <span class="uk-form-icon" uk-icon="icon: happy"></span>
+      <input class="uk-input"  name="firstName" #firstName="ngModel" ngModel required
+        placeholder="First Name"type="text">
+        <p class="alert alert-danger" *ngIf="firstName.errors?.required && firstName.touched">
+          First name is required !
+        </p>
+  </div> 
+  <div class="uk-inline">
+    <span class="uk-form-icon" uk-icon="icon: happy"></span>
+    <input class="uk-input"  name="lastName" #lastName="ngModel" ngModel required
+      placeholder="Last Name"type="text">
+      <p class="alert alert-danger" *ngIf="lastName.errors?.required && lastName.touched">
+         Last name is required !
+      </p> 
+</div>
+  
+
+
+     <!-- 
+      <div class="uk-margin">
+          <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: tag"></span>
+              <input class="uk-input" placeholder="CIN" type="number"
+              name="cin" #cin="ngModel"  ngModel required>
+              <p class="alert alert-danger" *ngIf="cin.errors?.required && cin.touched">
+                  Cin is required
+                </p>
+                
+          </div>
+      </div> 
+    --> 
+      <div class="uk-margin">
+          <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: grid"></span>
+              <input class="uk-input" placeholder="DD/MM/YYYY" type="date"
+              name="dateBirth" #dateBirth="ngModel"  ngModel required>
+          </div>
+      </div>
+      <div class="uk-margin">
+        <div class="uk-inline">
+            <input class="uk-input" placeholder="Adresse" type="text"
+            name="adresse" #adresse="ngModel"  ngModel required>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+      <div class="uk-inline">
+        <label>Classe</label>
+          <select id="classe" class="uk-input"
+          name="classe" #classe="ngModel"  ngModel required>
+            <option value="RSI" selected>RSI</option>
+            <option value="DSI">DSI</option>
+            <option value="SEM">SEM</option>
+          </select>
+      </div>
+      </div>
+  <div class="uk-margin">
+    <div class="uk-inline">
+      <label>Type Account</label>
+        <select id="typeAccount" class="uk-input" 
+        name="typeAccount" #typeAccount="ngModel"  ngModel required>
+          <option value="etudiant" selected>etudiant</option>
+          <option value="enseignant">enseignant</option>
+        </select>
+    </div>
+    </div>
+    <!-- 
+<div class="uk-margin">
+  <div class="uk-inline">
+      <span class="uk-form-icon" uk-icon="icon: grid"></span>
+      <input class="uk-input" placeholder="image" type="text"
+      name="image" #image="ngModel"  ngModel required>
+  </div>
+</div>
+-->
+<div class="uk-margin">
+<div class="uk-inline">
+  <label>Sexe</label>
+    <select id="sexe" class="uk-input"
+    name="sexe" #sexe="ngModel"  ngModel required>
+      <option value="Homme" selected >Homme</option>
+      <option value="Femme">Femme</option>
+      <option value="Autre">Autre</option>
+    </select>
+</div>
+</div>
+<div class="uk-margin">
+<div class="uk-inline">
+    <input class="uk-input" placeholder="Phone" type="text"
+    name="phone" #phone="ngModel"  ngModel required>
+</div>
+</div>
+      <div class="uk-margin">
+          <div class="uk-inline">
+              <span class="uk-form-icon" uk-icon="icon: mail"></span>
+              <input class="uk-input" type="email" placeholder="xxx@yyy.zz"
+              name="email" #email="ngModel" ngModel required>
+              <p class="alert alert-danger" *ngIf="email.errors?.required && email.touched">
+                  Email is required
+                </p>
+          </div>
+      </div>
+
+  
+      <div class="uk-margin">
+          <div class="uk-inline">
+              <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+              <input class="uk-input" type="password" placeholder="Password"
+               name="password" #password="ngModel" minlength="8" ngModel required>
+               <p class="alert alert-danger" *ngIf="password.errors?.required && password.touched">
+                  password is required
+                </p>
+                <p class="alert alert-danger" *ngIf="password.errors?.minlength && password.touched">
+                  password should be at least 8 characters 
+                </p>
+          </div>
+          <br>
+          <div class="uk-inline">
+              <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+              <input class="uk-input" type="password" placeholder="Confirm Password"
+               name="confirmPassword" #confirmPassword="ngModel" minlength="8" ngModel required>
+               <p class="alert alert-danger" *ngIf="confirmPassword.errors?.required && confirmPassword.errors?.minlength &&confirmPassword.touched">
+                  password is required
+                </p>
+                <p class="alert alert-danger" *ngIf="confirmPassword.value!==password.value && confirmPassword.touched">
+                  Not equal
+                </p>
+          </div>
+          
+      </div>
+  <button type="submit" class="btn btn-success" style="width: 100%;" [disabled]="f.invalid">Register</button>
+  <br>
+  <span>Do you have an account ?</span><br>
+  <button  class="btn btn-primary" style="width: 100%;" (click)="login()">Log In</button>
+</div>
+</div>
+<div class="card text-white">
+  <div class="card-body text-center">
+      <img src="../../assets/isetkbira.png" alt="img"style="width:100% ;height:100%"/>
+      
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div></form>
+

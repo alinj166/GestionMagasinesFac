@@ -1,0 +1,56 @@
+<div  *ngIf="isUser"  class="header  " >
+  <div class="block1">
+      <img src="../../assets/logo.jfif" class="logo"/>
+      <p>Institut Supérieur des Études Technologiques de Charguia</p>
+  </div>
+
+  <ul >
+    <li style="margin-top: 60px; " class="nav-item">
+      <a class="nav-link active" earia-current="pag" routerLink="/">Home</a>
+    </li>
+    <li style="margin-top: 60px; " class="nav-item">
+      <a class="nav-link"  routerLink="/magazines">Magazines</a>
+    </li>
+  </ul>
+  <ul>
+      <li><a routerLink="/profil"> <img [src]="dataProfil.image" class="profile"/></a></li>
+      <li><a routerLink="/profil"> {{dataProfil.lastName}} {{dataProfil.firstName}}</a></li>
+      <li><button class="btn btn-danger" style="background-color:rgb(243, 43, 43)" (click)="Logout()">Logout</button></li>
+  </ul>
+
+    
+
+</div>
+
+
+
+
+<nav  *ngIf="!isUser"  class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="assets/iset.png" alt="iset" width="50px"><strong  style="font-size:15 ">INSTITUT SUPÉRIEUR DES ETUDES TECHNOLOGIQUES DE CHARGUIA</strong></a>
+ 
+    
+      <ul class="navbar-nav me-auto my-2 my-lg-2 navbar-nav-scroll" >
+        <li class="nav-item">
+          <a class="nav-link active" earia-current="pag" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/magazines">Magazines</a>
+        </li>
+      </ul>
+
+   
+ 
+  <div class="d-flex" >
+
+  <button class="btn btn-warning me-3" (click)="login()" ><i class='fas fa-user-alt'></i> log In now</button>  <br> <br> 
+   <button class="btn btn-warning me-3" (click)="register()"><i class='fas fa-user-alt'></i> Register now</button> <br> 
+   <button class="btn btn-warning me-3" (click)="admin()"><i class='fas fa-user-alt'></i> Administrator</button>
+
+  </div>
+      
+      <br>
+     
+    </div>
+    
+</nav>

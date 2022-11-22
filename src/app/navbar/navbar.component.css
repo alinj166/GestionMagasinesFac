@@ -1,0 +1,59 @@
+*{background-color: #efeeee;}
+
+button {
+    height:15%;
+    
+}
+
+
+
+.block1{
+    display: inline-flex;
+    color: #000000;
+
+}
+
+.profile{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.block1 p{
+    margin-left: 10px;
+    margin-top: 1px;
+    font-size: 1.2em;
+}
+li,li a{
+   font-weight: 500;
+   font-size: 16px;
+   color: #000000;
+   text-decoration: none;
+   display: inline;
+   margin-right: 5px;
+   left: 2px;
+   font-size: 1.1em;
+}
+li a:hover{
+    color: rgb(24, 162, 241);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+    margin-left: 1px;
+}
+ul {
+list-style: none;
+margin-bottom: 1px;
+}
+ul li a{
+    transition: all 0.6s ease 0.1s;
+}
+

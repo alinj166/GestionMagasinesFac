@@ -1,0 +1,93 @@
+
+<!--==================================
+=            User Profile            =
+===================================-->
+
+<section class="user-profile section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
+				<div class="sidebar">
+					<!-- User Widget -->
+					<div class="widget user">
+						<!-- User Image -->
+						<div class="image d-flex justify-content-center">
+							<img [src]="dataProfil.image" alt="" class="">
+						</div>
+						<!-- User Name -->
+						<h5 class="text-center"> {{dataProfil.lastName}} {{dataProfil.firstName}}</h5>
+					</div>
+				
+			
+				</div>
+			</div>
+			<div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
+				<form [formGroup]="userForm" (ngSubmit)="update()">
+				<!-- Edit Profile Welcome Text -->
+				<div class="widget welcome-message">
+					<h2>Modifier profile</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+				</div>
+				<!-- Edit Personal Info -->
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="widget personal-info">
+							<h3 class="widget-header user">
+								modifier les informations personnelles</h3>
+						
+								<!-- First Name -->
+								<div class="form-group">
+									<label for="first-name">Prénom <sup>*</sup></label>
+									<input type="text" class="form-control" id="first-name"  [placeholder]='dataProfil.firstName'formControlName="firstName">
+								</div>
+								<!-- Last Name -->
+								<div class="form-group">
+									<label for="last-name">Nom de famille<sup>*</sup></label>
+									<input type="text" class="form-control" id="last-name" [placeholder]="dataProfil.lastName" formControlName="lastName">
+								</div>
+                                <div class="form-group">
+									<label for="last-name">tel<sup>*</sup></label>
+									<input type="text" class="form-control" id="last-name" [placeholder]="dataProfil.tel" formControlName="tel">
+								</div>
+                                <div class="form-group">
+									<label for="last-name">Date de naissance <sup>*</sup></label>
+									<input type="date" class="form-control" id="last-name" [placeholder]="dataProfil.dateBirth" formControlName="dateBirth">
+								</div>
+								<!-- File chooser -->
+								<div class="form-group choose-file d-inline-flex"  title="choisir une image">
+						
+								    <div class="text-center">
+										<img [src]=" imgSrc" class="rounded-circle p-1 bg-primary" width="80" height="80" (click)="fileUploader.click()">
+									  </div>
+									<input type="file"  class="form-control-file mt-2 pt-1" id="input-file"  (change)="uploadImage($event)"  formControlName="image" #fileUploader>
+								 </div>
+							
+						
+						
+						
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-4">
+						<!-- Change Password -->
+				
+						<!-- Submit button -->
+						<button [disabled]="userForm.invalid" class="btn btn-primary ">
+							Enregistrer mes modifications</button>
+				
+					</div>
+			
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="alert alert-danger "   data-delay="100" aria-atomic="true" aria-live="assertive" style="position:fixed; top: 5rem; right: 3rem; min-width:400PX; " *ngIf="echecMess">
+		<button type="button" class="ml-2 mb-1 close" data-dismiss="alert" aria-label="Fermer"><span aria-hidden="true">&times;</span></button>
+
+		<h4 class="alert-heading"  >Error!</h4>
+		<h6>{{echecMess}}</h6>
+   
+	  </div>
+</section>

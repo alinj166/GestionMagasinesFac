@@ -1,0 +1,33 @@
+<app-nav-bar></app-nav-bar>
+<div class="dashboard">
+<div class="table-responsive">
+    <table class="table table-striped table-sm" name="magazine">
+      <thead>
+        <tr>
+          <th scope="col">id user</th>
+          <th scope="col">id Magazine</th>
+          <th scope="col">date Debut</th>
+          <th scope="col">date Fin</th>
+          <th scope="col">Action</th>
+          
+          
+        </tr>
+      </thead>
+      <tbody id="s">
+        <tr *ngFor="let item of dataArray1| paginate: { itemsPerPage: 4, currentPage: pages}">
+            
+          <td>{{item.collection.idUser}}</td>
+          <td>{{item.collection.idMag}}</td>
+            <td>{{item.collection.dateDeb}}</td>
+          <td>{{item.collection.DateFin}}</td>
+       
+          <td><button id="danger" class="button" type="submit" (click)="supprimer(item.uid)"><i class="fas fa-trash-alt"></i></button>
+          
+        </td>
+      </tr>
+      <pagination-controls (pageChange)="pages = $event"></pagination-controls>       
+
+    </tbody>
+  </table>
+</div> 
+</div>

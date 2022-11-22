@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="img" ><img src="assets/profil/img1.jpg" style="width:100%;height:400px"> </div>
+    <div class="card social-prof">
+        <div class="card-body">
+            <div class="wrapper">
+                <img [src]="dataProfil.image" alt="" class="user-profile">
+                <h3>{{dataProfil.firstName}} {{dataProfil.lastName}}</h3>
+                <p>{{dataProfil.typeAccount}}</p>
+        
+            </div>
+            <div class="row ">
+                <div class="col-lg-12">
+                    <ul class=" nav nav-tabs justify-content-center s-nav">
+                        <li><a href="/profil">Detail</a></li>
+                        <li><a routerLink="/editProfil">Edit Profil</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6  ">
+            <div class="card">
+                <div class="card-body info-card social-about">
+                    <h2 class="text-blue">Detail</h2>
+                    <h4 class="mb-3"><strong>Personal Info</strong></h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="social-info">
+                                <i class="fas fa-birthday-cake mr-2"></i>
+                                <span>  {{dataProfil.dateBirth | date:'dd-MM-YYYY ' }}</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="social-info">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>{{dataProfil.adresse}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="social-info">
+                                <i class="fas fas fa-users mr-2"></i>
+                                <span>{{dataProfil.sexe}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="social-info">
+                                <i class="fas fa-briefcase mr-2"></i>
+                                <span>{{dataProfil.classe}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="social-info">
+                                <i class="fas fas fa-mobile mr-2"></i>
+                                <span>{{dataProfil.tel}}</span>
+                            </div>
+                        </div>
+             
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   
+</div>

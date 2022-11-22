@@ -1,0 +1,31 @@
+<div style="background-color: #c4d2ea;"><br>
+    <br>
+    <br>
+     <div class="container">
+        <div class="body">
+            <div class="form-group">
+                <div class = "col-lg-3">
+                <input type="text" class="form-control" placeholder="Search" style="margin-left:900px;border-radius: 20px;"
+                [(ngModel)]="searchTerm"/></div>
+            </div>
+              <br>
+              <br>
+          <div class="row">
+            <div class="col-lg-3" *ngFor="let item of dataArray | itemFilter:searchTerm | paginate: { itemsPerPage: 4, currentPage: pages}">
+                
+                    <div class="card" style="width: 14rem; height:25rem;background-color:aliceblue;">
+                        <img [src]="item.image" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title">{{item.titre}}</h3>
+                          <a class="btn btn-outline-success" (click)="detail(item.id)">Details</a>
+                        </div>
+                      </div>              
+              <br>
+             </div>
+             <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+         </div>
+        </div>
+     </div>
+     <br><br>
+     <br>
+    </div>
